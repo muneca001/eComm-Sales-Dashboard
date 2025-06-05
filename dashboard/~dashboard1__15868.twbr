@@ -1,0 +1,2762 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='win' version='18.1' xml:base='https://localhost' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard?rev=1.2' id='EcommerceProductDashboard' path='/workbooks' revision='1.2' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='cleaned_shein_sample' inline='true' name='federated.15pai3o1x7rmin1bq53941q9s9it' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cleaned_sample' name='textscan.1bqevgc111ntzh170yurn0csjumy'>
+            <connection class='textscan' directory='C:/Users/jolyc/Downloads/eComm-Sales-Dashboard/data' filename='cleaned_sample.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='cleaned_shein_sample' name='textscan.0gjp38m0ryev34137r4yy0f56v0d'>
+            <connection class='textscan' directory='C:/Users/jolyc/Downloads/eComm-Sales-Dashboard/data' filename='cleaned_shein_sample.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='dates' name='textscan.0do1iv10vhkngv1499r0z1s9nx4r'>
+            <connection class='textscan' directory='C:/Users/jolyc/Downloads/eComm-Sales-Dashboard/data' filename='dates.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.0gjp38m0ryev34137r4yy0f56v0d' name='cleaned_shein_sample.csv' table='[cleaned_shein_sample#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='name' ordinal='0' />
+              <column datatype='string' name='sku' ordinal='1' />
+              <column datatype='real' name='price' ordinal='2' />
+              <column datatype='string' name='brand' ordinal='3' />
+              <column datatype='string' name='description' ordinal='4' />
+              <column datatype='string' name='category' ordinal='5' />
+              <column datatype='integer' name='image_count' ordinal='6' />
+              <column datatype='string' name='sizes' ordinal='7' />
+              <column datatype='string' name='subcolor' ordinal='8' />
+              <column datatype='string' name='color_grouped' ordinal='9' />
+              <column datatype='string' name='material' ordinal='10' />
+              <column datatype='string' name='composition' ordinal='11' />
+              <column datatype='integer' name='name_word_count' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0do1iv10vhkngv1499r0z1s9nx4r' name='dates.csv' table='[dates#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='name' ordinal='0' />
+              <column datatype='string' name='sku' ordinal='1' />
+              <column datatype='real' name='price' ordinal='2' />
+              <column datatype='string' name='brand' ordinal='3' />
+              <column datatype='string' name='description' ordinal='4' />
+              <column datatype='string' name='category' ordinal='5' />
+              <column datatype='integer' name='image_count' ordinal='6' />
+              <column datatype='string' name='sizes' ordinal='7' />
+              <column datatype='date' name='date' ordinal='8' />
+              <column datatype='string' name='subcolor' ordinal='9' />
+              <column datatype='string' name='color_grouped' ordinal='10' />
+              <column datatype='string' name='material' ordinal='11' />
+              <column datatype='string' name='composition' ordinal='12' />
+              <column datatype='integer' name='name_word_count' ordinal='13' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[brand (dates.csv)]' value='[dates.csv].[brand]' />
+          <map key='[brand]' value='[cleaned_shein_sample.csv].[brand]' />
+          <map key='[category (dates.csv)]' value='[dates.csv].[category]' />
+          <map key='[category]' value='[cleaned_shein_sample.csv].[category]' />
+          <map key='[color_grouped (dates.csv)]' value='[dates.csv].[color_grouped]' />
+          <map key='[color_grouped]' value='[cleaned_shein_sample.csv].[color_grouped]' />
+          <map key='[composition (dates.csv)]' value='[dates.csv].[composition]' />
+          <map key='[composition]' value='[cleaned_shein_sample.csv].[composition]' />
+          <map key='[date]' value='[dates.csv].[date]' />
+          <map key='[description (dates.csv)]' value='[dates.csv].[description]' />
+          <map key='[description]' value='[cleaned_shein_sample.csv].[description]' />
+          <map key='[image_count (dates.csv)]' value='[dates.csv].[image_count]' />
+          <map key='[image_count]' value='[cleaned_shein_sample.csv].[image_count]' />
+          <map key='[material (dates.csv)]' value='[dates.csv].[material]' />
+          <map key='[material]' value='[cleaned_shein_sample.csv].[material]' />
+          <map key='[name (dates.csv)]' value='[dates.csv].[name]' />
+          <map key='[name]' value='[cleaned_shein_sample.csv].[name]' />
+          <map key='[name_word_count (dates.csv)]' value='[dates.csv].[name_word_count]' />
+          <map key='[name_word_count]' value='[cleaned_shein_sample.csv].[name_word_count]' />
+          <map key='[price (dates.csv)]' value='[dates.csv].[price]' />
+          <map key='[price]' value='[cleaned_shein_sample.csv].[price]' />
+          <map key='[sizes (dates.csv)]' value='[dates.csv].[sizes]' />
+          <map key='[sizes]' value='[cleaned_shein_sample.csv].[sizes]' />
+          <map key='[sku (dates.csv)]' value='[dates.csv].[sku]' />
+          <map key='[sku]' value='[cleaned_shein_sample.csv].[sku]' />
+          <map key='[subcolor (dates.csv)]' value='[dates.csv].[subcolor]' />
+          <map key='[subcolor]' value='[cleaned_shein_sample.csv].[subcolor]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sku</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sku]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>sku</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>brand</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[brand]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>brand</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[description]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>description</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>image_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[image_count]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>image_count</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sizes</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sizes]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>sizes</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>subcolor</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[subcolor]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>subcolor</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>color_grouped</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[color_grouped]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>color_grouped</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>material</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[material]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>material</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>composition</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[composition]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>composition</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name_word_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[name_word_count]</local-name>
+            <parent-name>[cleaned_shein_sample.csv]</parent-name>
+            <remote-alias>name_word_count</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sku</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sku (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>sku</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>brand</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[brand (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>brand</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[description (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>description</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>image_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[image_count (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>image_count</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sizes</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sizes (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>sizes</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>subcolor</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[subcolor (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>subcolor</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>color_grouped</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[color_grouped (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>color_grouped</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>material</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[material (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>material</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>composition</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[composition (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>composition</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name_word_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[name_word_count (dates.csv)]</local-name>
+            <parent-name>[dates.csv]</parent-name>
+            <remote-alias>name_word_count</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:name_word_count:qk]&quot;' value='Avg. Words in Title' />
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:price (dates.csv):qk]&quot;' value='Avg. Price / Unit' />
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:price:qk]&quot;' value='Price /  Unit' />
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku:qk]&quot;' value='Units Sold' />
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[med:image_count:qk]&quot;' value='Number of Images' />
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[med:name_word_count:qk]&quot;' value='Word Count in Title' />
+          <alias key='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]&quot;' value=' Revenue' />
+        </aliases>
+      </column>
+      <column caption='Price Range Label' datatype='string' datatype-customized='true' name='[Calculation_1116611247451979777]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;$&quot; + STR(INT([Calculation_1116611247453949954])) + &quot; – $&quot; + STR(INT([Calculation_1116611247454015491]))' />
+      </column>
+      <column caption='Bin Start' datatype='integer' name='[Calculation_1116611247453949954]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='FLOOR([price] / 3) * 3' />
+      </column>
+      <column caption='Bin End' datatype='integer' name='[Calculation_1116611247454015491]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='FLOOR([price] / 3) * 3 + 3' />
+      </column>
+      <column caption='Above Avg Sales' datatype='boolean' name='[Calculation_727049867289899008]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='SUM([price])&gt;=WINDOW_AVG(SUM([price]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column aggregation='None' caption='Price (bin)' datatype='integer' name='[Price (bin)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='0' formula='[price]' peg='0' size='3' />
+      </column>
+      <column datatype='string' name='[SHE Collaboration]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[brand]' new-bin='true'>
+          <bin default-name='false' value='&quot;SHEIN Collaborations&quot;'>
+            <value>&quot;SHEIN X (in)SALT-Y(d)&quot;</value>
+            <value>&quot;SHEIN X ABIMER&quot;</value>
+            <value>&quot;SHEIN X Abrar Zenkawi&quot;</value>
+            <value>&quot;SHEIN X Adiva Marie Co.&quot;</value>
+            <value>&quot;SHEIN X Adrienne Alexis&quot;</value>
+            <value>&quot;SHEIN X Afaf&quot;</value>
+            <value>&quot;SHEIN X Aini Yang&quot;</value>
+            <value>&quot;SHEIN X ALEXANDER KURMANIN&quot;</value>
+            <value>&quot;SHEIN X Alexandra Five&quot;</value>
+            <value>&quot;SHEIN X Alice Wanderland&quot;</value>
+            <value>&quot;SHEIN X AMA&quot;</value>
+            <value>&quot;SHEIN X AMOF&quot;</value>
+            <value>&quot;SHEIN X Andra Popovici&quot;</value>
+            <value>&quot;SHEIN X Andrea St.&quot;</value>
+            <value>&quot;SHEIN X ANIHOUVI Ludmilla&quot;</value>
+            <value>&quot;SHEIN X Aninho&quot;</value>
+            <value>&quot;SHEIN X Anke Wonder&quot;</value>
+            <value>&quot;SHEIN X Anne Kyrsten&quot;</value>
+            <value>&quot;SHEIN X Areej Rimawi&quot;</value>
+            <value>&quot;SHEIN X ARIA&quot;</value>
+            <value>&quot;SHEIN X ARTH&quot;</value>
+            <value>&quot;SHEIN X ARUS&quot;</value>
+            <value>&quot;SHEIN X Ashi&quot;</value>
+            <value>&quot;SHEIN X Ashley D Love&quot;</value>
+            <value>&quot;SHEIN X ASSIA PESENTI&quot;</value>
+            <value>&quot;SHEIN X Attilio De Angelis&quot;</value>
+            <value>&quot;SHEIN X AZNE&quot;</value>
+            <value>&quot;SHEIN X Basse Couture&quot;</value>
+            <value>&quot;SHEIN X BAW Collection&quot;</value>
+            <value>&quot;SHEIN X Bea Araza&quot;</value>
+            <value>&quot;SHEIN X Becci&quot;</value>
+            <value>&quot;SHEIN X Bethany Grace&quot;</value>
+            <value>&quot;SHEIN X BLENX CODE&quot;</value>
+            <value>&quot;SHEIN X Bronze Empire&quot;</value>
+            <value>&quot;SHEIN X Brydie Rae Farrell&quot;</value>
+            <value>&quot;SHEIN X By Nusha&quot;</value>
+            <value>&quot;SHEIN X C-Era&quot;</value>
+            <value>&quot;SHEIN X CakeSpy&quot;</value>
+            <value>&quot;SHEIN X CAMILLE JUGE&quot;</value>
+            <value>&quot;SHEIN X Carlotta Cardillo&quot;</value>
+            <value>&quot;SHEIN X CAROLINE 1942&quot;</value>
+            <value>&quot;SHEIN X CARSON WONG&quot;</value>
+            <value>&quot;SHEIN X Catia Bart&quot;</value>
+            <value>&quot;SHEIN X Cayetano&quot;</value>
+            <value>&quot;SHEIN X Cecile Betbeze&quot;</value>
+            <value>&quot;SHEIN X Channa Karasi&quot;</value>
+            <value>&quot;SHEIN X CHERYL TEO&quot;</value>
+            <value>&quot;SHEIN X Chiara&quot;</value>
+            <value>&quot;SHEIN X Chompoohbua&quot;</value>
+            <value>&quot;SHEIN X CIRCE&quot;</value>
+            <value>&quot;SHEIN X Claire-Lys&quot;</value>
+            <value>&quot;SHEIN X CLOSET EXCLUSIVES&quot;</value>
+            <value>&quot;SHEIN X CLOUD BY CLAU&quot;</value>
+            <value>&quot;SHEIN X Creative Calm&quot;</value>
+            <value>&quot;SHEIN X CRIZM&quot;</value>
+            <value>&quot;SHEIN X CRYBABY&quot;</value>
+            <value>&quot;SHEIN X Cute but Psycho&quot;</value>
+            <value>&quot;SHEIN X Cute-Saint&quot;</value>
+            <value>&quot;SHEIN X D_3H30&quot;</value>
+            <value>&quot;SHEIN X D.A.Z.H.E&quot;</value>
+            <value>&quot;SHEIN X Danielle Monae&quot;</value>
+            <value>&quot;SHEIN X DAY LITE&quot;</value>
+            <value>&quot;SHEIN X DEATH BY DOLLS&quot;</value>
+            <value>&quot;SHEIN X Delapaz&quot;</value>
+            <value>&quot;SHEIN X Delayne Dixon&quot;</value>
+            <value>&quot;SHEIN X DESIGNED BY TONY&quot;</value>
+            <value>&quot;SHEIN X DESIGNS BY ZAHMAR&quot;</value>
+            <value>&quot;SHEIN X Diana Brettas&quot;</value>
+            <value>&quot;SHEIN X DIANA MAHA&quot;</value>
+            <value>&quot;SHEIN X DINA STARS&quot;</value>
+            <value>&quot;SHEIN X DORY YOUHANA&quot;</value>
+            <value>&quot;SHEIN X Drea&quot;</value>
+            <value>&quot;SHEIN X Dulc?&quot;</value>
+            <value>&quot;SHEIN X EBIB&quot;</value>
+            <value>&quot;SHEIN X EclecticCollection&quot;</value>
+            <value>&quot;SHEIN X EMILY REED&quot;</value>
+            <value>&quot;SHEIN X Eun&quot;</value>
+            <value>&quot;SHEIN X Eva Novielli&quot;</value>
+            <value>&quot;SHEIN X Eva Ruiz&quot;</value>
+            <value>&quot;SHEIN X Farah Wali&quot;</value>
+            <value>&quot;SHEIN X FAYE CHAN&quot;</value>
+            <value>&quot;SHEIN X Federica&quot;</value>
+            <value>&quot;SHEIN X Felicis&quot;</value>
+            <value>&quot;SHEIN X Felicity&quot;</value>
+            <value>&quot;SHEIN X Firefall&quot;</value>
+            <value>&quot;SHEIN X Five Karats&quot;</value>
+            <value>&quot;SHEIN X FLO PONCE PRINTS&quot;</value>
+            <value>&quot;SHEIN X FLOR BY LO&quot;</value>
+            <value>&quot;SHEIN X FORTUNATE&quot;</value>
+            <value>&quot;SHEIN X FREAK CITY&quot;</value>
+            <value>&quot;SHEIN X Gabriella Mavri&quot;</value>
+            <value>&quot;SHEIN X GAUTII&quot;</value>
+            <value>&quot;SHEIN X GD GRL BHVIOR&quot;</value>
+            <value>&quot;SHEIN X GEANINA&quot;</value>
+            <value>&quot;SHEIN X Geegee&apos;s Shop&quot;</value>
+            <value>&quot;SHEIN X GIISE&quot;</value>
+            <value>&quot;SHEIN X Glitzy&quot;</value>
+            <value>&quot;SHEIN X GOD.like&quot;</value>
+            <value>&quot;SHEIN X GottaBeJelly&quot;</value>
+            <value>&quot;SHEIN X Gulnara Gulia&quot;</value>
+            <value>&quot;SHEIN X Hanchi&quot;</value>
+            <value>&quot;SHEIN X House of Fleek&quot;</value>
+            <value>&quot;SHEIN X Huberlene&quot;</value>
+            <value>&quot;SHEIN X ICW&quot;</value>
+            <value>&quot;SHEIN X IMperfect&quot;</value>
+            <value>&quot;SHEIN X In Moraine&quot;</value>
+            <value>&quot;SHEIN X Innovante&quot;</value>
+            <value>&quot;SHEIN X INSIGNIA&quot;</value>
+            <value>&quot;SHEIN X ISABELLA&quot;</value>
+            <value>&quot;SHEIN X Isabelle WANG&quot;</value>
+            <value>&quot;SHEIN X Ishara Gamage&quot;</value>
+            <value>&quot;SHEIN X Israel Jasso&quot;</value>
+            <value>&quot;SHEIN X Jad&apos;e by Jas Thomas&quot;</value>
+            <value>&quot;SHEIN X Janie Hao&quot;</value>
+            <value>&quot;Shein x Jeanelle Sonia&quot;</value>
+            <value>&quot;SHEIN X Jennty Designs&quot;</value>
+            <value>&quot;SHEIN X JESSE G&quot;</value>
+            <value>&quot;SHEIN X Jessica Di Michele&quot;</value>
+            <value>&quot;SHEIN X JEWEL SUM&quot;</value>
+            <value>&quot;SHEIN X Jojee Apparel&quot;</value>
+            <value>&quot;SHEIN X Juliana Jace&quot;</value>
+            <value>&quot;SHEIN X JuliaSasakiHernanz&quot;</value>
+            <value>&quot;SHEIN X K Chirinos&quot;</value>
+            <value>&quot;SHEIN X Kaotip&quot;</value>
+            <value>&quot;SHEIN X KARISSA SCHNEIDER&quot;</value>
+            <value>&quot;SHEIN X Kasey Nease&quot;</value>
+            <value>&quot;SHEIN X KAY&quot;</value>
+            <value>&quot;SHEIN X KaylaProductions&quot;</value>
+            <value>&quot;SHEIN X KES&quot;</value>
+            <value>&quot;SHEIN X Kesha Alein&quot;</value>
+            <value>&quot;SHEIN X KierraNichole&quot;</value>
+            <value>&quot;SHEIN X Kirsten Claire&quot;</value>
+            <value>&quot;SHEIN X Kitty &amp; Rhodes&quot;</value>
+            <value>&quot;SHEIN X Kovid Kapoor&quot;</value>
+            <value>&quot;SHEIN X Krystal Everdeen&quot;</value>
+            <value>&quot;SHEIN X KYS&quot;</value>
+            <value>&quot;SHEIN X L&apos;Amour Morbide&quot;</value>
+            <value>&quot;SHEIN X Larissa torres&quot;</value>
+            <value>&quot;SHEIN X Laysia Lavon&quot;</value>
+            <value>&quot;SHEIN X Lazy Hoya&quot;</value>
+            <value>&quot;SHEIN X LENG CHIN&quot;</value>
+            <value>&quot;SHEIN X Leslie Samano&quot;</value>
+            <value>&quot;SHEIN X Let Them Stare&quot;</value>
+            <value>&quot;SHEIN X Lezio Lopes&quot;</value>
+            <value>&quot;SHEIN X LI WEN&quot;</value>
+            <value>&quot;SHEIN X Lilee&quot;</value>
+            <value>&quot;SHEIN X LILI PAN&quot;</value>
+            <value>&quot;SHEIN X Liliana Luna&quot;</value>
+            <value>&quot;SHEIN X Lillian Butterworth&quot;</value>
+            <value>&quot;SHEIN X Lindsey Kate&quot;</value>
+            <value>&quot;SHEIN X LIYUN X&quot;</value>
+            <value>&quot;SHEIN X LMane&quot;</value>
+            <value>&quot;SHEIN X LORI STEPHENSON&quot;</value>
+            <value>&quot;SHEIN X LRUBRE&quot;</value>
+            <value>&quot;SHEIN X LUSINE BONFIELD&quot;</value>
+            <value>&quot;SHEIN X M.E.L.T&quot;</value>
+            <value>&quot;SHEIN X Madina&quot;</value>
+            <value>&quot;SHEIN X Manic Pop&quot;</value>
+            <value>&quot;SHEIN X Manufactured Gold&quot;</value>
+            <value>&quot;SHEIN X MAR?A PONCE&quot;</value>
+            <value>&quot;SHEIN X Maria&quot;</value>
+            <value>&quot;SHEIN X MAYSOPHIE&quot;</value>
+            <value>&quot;SHEIN X MEC Wasa&quot;</value>
+            <value>&quot;SHEIN X MEGAN JOHNSON&quot;</value>
+            <value>&quot;SHEIN X MEL ROUMEC&quot;</value>
+            <value>&quot;SHEIN X Meng Fei Lin&quot;</value>
+            <value>&quot;SHEIN X Michaela Eddington&quot;</value>
+            <value>&quot;SHEIN X Michelle Wong&quot;</value>
+            <value>&quot;SHEIN X MIKYLIE&quot;</value>
+            <value>&quot;SHEIN X MINA&quot;</value>
+            <value>&quot;SHEIN X Mithra&quot;</value>
+            <value>&quot;SHEIN X MIYUKI&quot;</value>
+            <value>&quot;SHEIN X MOMI-KO&quot;</value>
+            <value>&quot;SHEIN X Mountain Vintage Press&quot;</value>
+            <value>&quot;SHEIN X MPDC&quot;</value>
+            <value>&quot;SHEIN X MY-DOLLS&quot;</value>
+            <value>&quot;SHEIN X My0812retro Streetwear&quot;</value>
+            <value>&quot;SHEIN X NAJILARAQUELDESIGNS&quot;</value>
+            <value>&quot;SHEIN X NAOMI&quot;</value>
+            <value>&quot;SHEIN X Naomi Jasmin&quot;</value>
+            <value>&quot;SHEIN X NATALIA DEDIOS&quot;</value>
+            <value>&quot;SHEIN X Nayeli Lazaro&quot;</value>
+            <value>&quot;SHEIN X Neon Island&quot;</value>
+            <value>&quot;SHEIN X New Little Wings&quot;</value>
+            <value>&quot;SHEIN X New Romance&quot;</value>
+            <value>&quot;SHEIN X NICOLE CANDELORO&quot;</value>
+            <value>&quot;SHEIN X Nikole Sanches&quot;</value>
+            <value>&quot;SHEIN X NINACIA&quot;</value>
+            <value>&quot;SHEIN X NJH Design&quot;</value>
+            <value>&quot;SHEIN X Nkao Hle Hang&quot;</value>
+            <value>&quot;SHEIN X NM3&quot;</value>
+            <value>&quot;SHEIN X No?-Liam&quot;</value>
+            <value>&quot;SHEIN X NOOR BREICH&quot;</value>
+            <value>&quot;SHEIN X Nora Ink&quot;</value>
+            <value>&quot;SHEIN X OSHEN&quot;</value>
+            <value>&quot;SHEIN X Oxana&quot;</value>
+            <value>&quot;SHEIN X PAMELA&quot;</value>
+            <value>&quot;SHEIN X PANCHO&quot;</value>
+            <value>&quot;SHEIN X PANUCO&quot;</value>
+            <value>&quot;SHEIN X PAOLA DINAZARETH&quot;</value>
+            <value>&quot;SHEIN X PAULINE MURATI&quot;</value>
+            <value>&quot;SHEIN X Pchawj&quot;</value>
+            <value>&quot;SHEIN X Peartree Stories&quot;</value>
+            <value>&quot;SHEIN X PHOZOHO&quot;</value>
+            <value>&quot;SHEIN X ppmid&quot;</value>
+            <value>&quot;SHEIN X Provocation&quot;</value>
+            <value>&quot;SHEIN X Pylog&quot;</value>
+            <value>&quot;SHEIN X QIN LIN&quot;</value>
+            <value>&quot;SHEIN X RAGLESS&quot;</value>
+            <value>&quot;SHEIN X Raluk&quot;</value>
+            <value>&quot;SHEIN X RAQUEL&quot;</value>
+            <value>&quot;SHEIN X RAUL OROZCO&quot;</value>
+            <value>&quot;SHEIN X RAYA&quot;</value>
+            <value>&quot;SHEIN X Reanne Wang&quot;</value>
+            <value>&quot;SHEIN X Rebecca Silva&quot;</value>
+            <value>&quot;SHEIN X RECKLESS ERICKA&quot;</value>
+            <value>&quot;SHEIN X Redefinition&quot;</value>
+            <value>&quot;SHEIN X REESEDELUCA&quot;</value>
+            <value>&quot;SHEIN X REN by Lau&quot;</value>
+            <value>&quot;SHEIN X Renakok&quot;</value>
+            <value>&quot;SHEIN X REVELIGION&quot;</value>
+            <value>&quot;SHEIN X RITA H&quot;</value>
+            <value>&quot;SHEIN X Rituales&quot;</value>
+            <value>&quot;SHEIN X RL&quot;</value>
+            <value>&quot;SHEIN X ROCIO&quot;</value>
+            <value>&quot;SHEIN X Rossella Logiurato&quot;</value>
+            <value>&quot;SHEIN X Royal Daisy&quot;</value>
+            <value>&quot;SHEIN X SAAMU&quot;</value>
+            <value>&quot;SHEIN X SABOTAGE 2C5F&quot;</value>
+            <value>&quot;SHEIN X Sabrine&quot;</value>
+            <value>&quot;SHEIN X Safari&quot;</value>
+            <value>&quot;SHEIN X Sara Cennamo&quot;</value>
+            <value>&quot;SHEIN X Sara Mezzanotti&quot;</value>
+            <value>&quot;SHEIN X Sarah Stevenson&quot;</value>
+            <value>&quot;SHEIN X SARI&quot;</value>
+            <value>&quot;SHEIN X Sayndo&quot;</value>
+            <value>&quot;SHEIN X Scube&quot;</value>
+            <value>&quot;SHEIN X Sean Betco&quot;</value>
+            <value>&quot;SHEIN X Season Lye&quot;</value>
+            <value>&quot;SHEIN X Sergio Ricchitelli&quot;</value>
+            <value>&quot;SHEIN X Shahedah&quot;</value>
+            <value>&quot;SHEIN X Shanika Marie&quot;</value>
+            <value>&quot;SHEIN X Shelby&quot;</value>
+            <value>&quot;SHEIN X Shwetha Anand Designs&quot;</value>
+            <value>&quot;SHEIN X Sire Leo Lamar&quot;</value>
+            <value>&quot;SHEIN X Smita Shrinivas&quot;</value>
+            <value>&quot;SHEIN X SMYLE&quot;</value>
+            <value>&quot;SHEIN X SOBOSS BRAND&quot;</value>
+            <value>&quot;SHEIN X Sogna&quot;</value>
+            <value>&quot;SHEIN X SonofTheSunStudio&quot;</value>
+            <value>&quot;SHEIN X Spagnelli&quot;</value>
+            <value>&quot;SHEIN X SQUID HOUSE&quot;</value>
+            <value>&quot;SHEIN X STEFANONI STUDIO&quot;</value>
+            <value>&quot;SHEIN X Sylvia Mollie&quot;</value>
+            <value>&quot;SHEIN X TAII Bangkok&quot;</value>
+            <value>&quot;SHEIN X Tainted Love&quot;</value>
+            <value>&quot;SHEIN X TANIA ORELLANA&quot;</value>
+            <value>&quot;SHEIN X TATYANA&quot;</value>
+            <value>&quot;SHEIN X Temmie TT&quot;</value>
+            <value>&quot;SHEIN X The Pearl Collective&quot;</value>
+            <value>&quot;SHEIN X The Perfect Party&quot;</value>
+            <value>&quot;SHEIN X TheBoxMethod&quot;</value>
+            <value>&quot;SHEIN X Tina Benally Art&quot;</value>
+            <value>&quot;SHEIN X TIYA&quot;</value>
+            <value>&quot;SHEIN X TRANG DUONG&quot;</value>
+            <value>&quot;SHEIN X TSUN SHUIN&quot;</value>
+            <value>&quot;SHEIN X TWINKLE CAT&quot;</value>
+            <value>&quot;SHEIN X TZC&quot;</value>
+            <value>&quot;SHEIN X VAE&quot;</value>
+            <value>&quot;SHEIN X VALERIA G?MEZ&quot;</value>
+            <value>&quot;SHEIN X Valeria Lujan&quot;</value>
+            <value>&quot;SHEIN X Valerie Hsin&quot;</value>
+            <value>&quot;SHEIN X VALHALLA&quot;</value>
+            <value>&quot;SHEIN X VB Collection&quot;</value>
+            <value>&quot;SHEIN X VERO DIAZ&quot;</value>
+            <value>&quot;SHEIN X Veronica Mancini&quot;</value>
+            <value>&quot;SHEIN X Vibrant Dames&quot;</value>
+            <value>&quot;SHEIN X VICTOR VON SCHWARZ&quot;</value>
+            <value>&quot;SHEIN X VNCIRCLE&quot;</value>
+            <value>&quot;SHEIN X VOON&quot;</value>
+            <value>&quot;SHEIN X WANDERFUL&quot;</value>
+            <value>&quot;SHEIN X Weims&quot;</value>
+            <value>&quot;SHEIN X X52X&quot;</value>
+            <value>&quot;SHEIN X Xenia&quot;</value>
+            <value>&quot;SHEIN X XIAO YAOQIUZI&quot;</value>
+            <value>&quot;SHEIN X Xosefino&quot;</value>
+            <value>&quot;SHEIN X YAYA ZAHIR&quot;</value>
+            <value>&quot;SHEIN X YEARS&quot;</value>
+            <value>&quot;SHEIN X YELLOW MUSHMELLOW&quot;</value>
+            <value>&quot;SHEIN X Yelly Gray&quot;</value>
+            <value>&quot;SHEIN X Yilang&quot;</value>
+            <value>&quot;SHEIN X YINNG&quot;</value>
+            <value>&quot;SHEIN X YUPING&quot;</value>
+            <value>&quot;SHEIN X Zizzari&quot;</value>
+            <value>&quot;SHEIN X Zoe Foreman&quot;</value>
+          </bin>
+        </calculation>
+      </column>
+      <column caption='cleaned_shein_sample.csv' datatype='table' name='[__tableau_internal_object_id__].[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]' role='measure' type='quantitative' />
+      <column caption='dates.csv' datatype='table' name='[__tableau_internal_object_id__].[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]' role='measure' type='quantitative' />
+      <column caption='Brand (Dates.Csv)' datatype='string' name='[brand (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Brand' datatype='string' name='[brand]' role='dimension' type='nominal' />
+      <column caption='Category (Dates.Csv)' datatype='string' name='[category (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='Color Grouped (Dates.Csv)' datatype='string' name='[color_grouped (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Color Grouped' datatype='string' name='[color_grouped]' role='dimension' type='nominal' />
+      <column caption='Composition (Dates.Csv)' datatype='string' name='[composition (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Composition' datatype='string' name='[composition]' role='dimension' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Description (Dates.Csv)' datatype='string' name='[description (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Description' datatype='string' name='[description]' role='dimension' type='nominal' />
+      <column caption='Image Count (Dates.Csv)' datatype='integer' name='[image_count (dates.csv)]' role='measure' type='quantitative' />
+      <column caption='Image Count' datatype='integer' name='[image_count]' role='measure' type='quantitative' />
+      <column caption='Material (Dates.Csv)' datatype='string' name='[material (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Material' datatype='string' name='[material]' role='dimension' type='nominal' />
+      <column caption='Name (Dates.Csv)' datatype='string' name='[name (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Name Word Count (Dates.Csv)' datatype='integer' name='[name_word_count (dates.csv)]' role='measure' type='quantitative' />
+      <column caption='Name Word Count' datatype='integer' name='[name_word_count]' role='measure' type='quantitative' />
+      <column caption='Price (Dates.Csv)' datatype='real' name='[price (dates.csv)]' role='measure' type='quantitative' />
+      <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+      <column caption='Sizes (Dates.Csv)' datatype='string' name='[sizes (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Sizes' datatype='string' name='[sizes]' role='dimension' type='nominal' />
+      <column caption='Sku (Dates.Csv)' datatype='string' name='[sku (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Sku' datatype='string' name='[sku]' role='dimension' type='nominal' />
+      <column caption='Subcolor (Dates.Csv)' datatype='string' name='[subcolor (dates.csv)]' role='dimension' type='nominal' />
+      <column caption='Subcolor' datatype='string' name='[subcolor]' role='dimension' type='nominal' />
+      <column-instance column='[name_word_count]' derivation='Avg' name='[avg:name_word_count:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[price (dates.csv)]' derivation='Avg' name='[avg:price (dates.csv):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[price]' derivation='Avg' name='[avg:price:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[sku]' derivation='Count' name='[cnt:sku:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[image_count]' derivation='Median' name='[med:image_count:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[name_word_count]' derivation='Median' name='[med:name_word_count:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_727049867289899008]' derivation='User' name='[usr:Calculation_727049867289899008:nk:1]' pivot='key' type='nominal'>
+        <table-calc ordering-type='Columns' />
+      </column-instance>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/TableauTemp/#TableauTemp_04d4vzv0kdoawm1eeobk30nw5hmh.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='05/13/2025 02:45:00 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB' table='[Extract].[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]' type='table' />
+            <relation name='dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2' table='[Extract].[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]' type='table' />
+          </relation>
+          <cols>
+            <map key='[brand (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[brand]' />
+            <map key='[brand]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[brand]' />
+            <map key='[category (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[category]' />
+            <map key='[category]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[category]' />
+            <map key='[color_grouped (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[color_grouped]' />
+            <map key='[color_grouped]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[color_grouped]' />
+            <map key='[composition (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[composition]' />
+            <map key='[composition]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[composition]' />
+            <map key='[date]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[date]' />
+            <map key='[description (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[description]' />
+            <map key='[description]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[description]' />
+            <map key='[image_count (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[image_count]' />
+            <map key='[image_count]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[image_count]' />
+            <map key='[material (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[material]' />
+            <map key='[material]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[material]' />
+            <map key='[name (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[name]' />
+            <map key='[name]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[name]' />
+            <map key='[name_word_count (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[name_word_count]' />
+            <map key='[name_word_count]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[name_word_count]' />
+            <map key='[price (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[price]' />
+            <map key='[price]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[price]' />
+            <map key='[sizes (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[sizes]' />
+            <map key='[sizes]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[sizes]' />
+            <map key='[sku (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[sku]' />
+            <map key='[sku]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[sku]' />
+            <map key='[subcolor (dates.csv)]' value='[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2].[subcolor]' />
+            <map key='[subcolor]' value='[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB].[subcolor]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>name</remote-alias>
+              <ordinal>0</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2627</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sku</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[sku]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>sku</remote-alias>
+              <ordinal>1</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5000</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>price</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[price]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>price</remote-alias>
+              <ordinal>2</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>204</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>brand</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[brand]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>brand</remote-alias>
+              <ordinal>3</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>180</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>description</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[description]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>description</remote-alias>
+              <ordinal>4</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2922</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>category</remote-alias>
+              <ordinal>5</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>image_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[image_count]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>image_count</remote-alias>
+              <ordinal>6</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sizes</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[sizes]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>sizes</remote-alias>
+              <ordinal>7</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>subcolor</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[subcolor]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>subcolor</remote-alias>
+              <ordinal>8</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>74</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>color_grouped</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[color_grouped]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>color_grouped</remote-alias>
+              <ordinal>9</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>material</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[material]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>material</remote-alias>
+              <ordinal>10</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>52</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>composition</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[composition]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>composition</remote-alias>
+              <ordinal>11</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>199</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name_word_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[name_word_count]</local-name>
+              <parent-name>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</parent-name>
+              <remote-alias>name_word_count</remote-alias>
+              <ordinal>12</ordinal>
+              <family>cleaned_shein_sample.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>name</remote-alias>
+              <ordinal>13</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2627</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sku</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[sku (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>sku</remote-alias>
+              <ordinal>14</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5000</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>price</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[price (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>price</remote-alias>
+              <ordinal>15</ordinal>
+              <family>dates.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>204</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>brand</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[brand (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>brand</remote-alias>
+              <ordinal>16</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>180</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>description</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[description (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>description</remote-alias>
+              <ordinal>17</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2922</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>category</remote-alias>
+              <ordinal>18</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>image_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[image_count (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>image_count</remote-alias>
+              <ordinal>19</ordinal>
+              <family>dates.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sizes</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[sizes (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>sizes</remote-alias>
+              <ordinal>20</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>21</ordinal>
+              <family>dates.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>429</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>subcolor</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[subcolor (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>subcolor</remote-alias>
+              <ordinal>22</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>74</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>color_grouped</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[color_grouped (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>color_grouped</remote-alias>
+              <ordinal>23</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>material</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[material (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>material</remote-alias>
+              <ordinal>24</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>52</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>composition</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[composition (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>composition</remote-alias>
+              <ordinal>25</ordinal>
+              <family>dates.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>199</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name_word_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[name_word_count (dates.csv)]</local-name>
+              <parent-name>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</parent-name>
+              <remote-alias>name_word_count</remote-alias>
+              <ordinal>26</ordinal>
+              <family>dates.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[usr:Calculation_727049867289899008:nk:1]' type='palette'>
+            <map to='#d3d3d3'>
+              <bucket>false</bucket>
+            </map>
+            <map to='#f1788d'>
+              <bucket>true</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='cleaned_shein_sample.csv' id='cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB'>
+            <properties context=''>
+              <relation connection='textscan.0gjp38m0ryev34137r4yy0f56v0d' name='cleaned_shein_sample.csv' table='[cleaned_shein_sample#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='name' ordinal='0' />
+                  <column datatype='string' name='sku' ordinal='1' />
+                  <column datatype='real' name='price' ordinal='2' />
+                  <column datatype='string' name='brand' ordinal='3' />
+                  <column datatype='string' name='description' ordinal='4' />
+                  <column datatype='string' name='category' ordinal='5' />
+                  <column datatype='integer' name='image_count' ordinal='6' />
+                  <column datatype='string' name='sizes' ordinal='7' />
+                  <column datatype='string' name='subcolor' ordinal='8' />
+                  <column datatype='string' name='color_grouped' ordinal='9' />
+                  <column datatype='string' name='material' ordinal='10' />
+                  <column datatype='string' name='composition' ordinal='11' />
+                  <column datatype='integer' name='name_word_count' ordinal='12' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB' table='[Extract].[cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB]' type='table' />
+            </properties>
+          </object>
+          <object caption='dates.csv' id='dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2'>
+            <properties context=''>
+              <relation connection='textscan.0do1iv10vhkngv1499r0z1s9nx4r' name='dates.csv' table='[dates#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='name' ordinal='0' />
+                  <column datatype='string' name='sku' ordinal='1' />
+                  <column datatype='real' name='price' ordinal='2' />
+                  <column datatype='string' name='brand' ordinal='3' />
+                  <column datatype='string' name='description' ordinal='4' />
+                  <column datatype='string' name='category' ordinal='5' />
+                  <column datatype='integer' name='image_count' ordinal='6' />
+                  <column datatype='string' name='sizes' ordinal='7' />
+                  <column datatype='date' name='date' ordinal='8' />
+                  <column datatype='string' name='subcolor' ordinal='9' />
+                  <column datatype='string' name='color_grouped' ordinal='10' />
+                  <column datatype='string' name='material' ordinal='11' />
+                  <column datatype='string' name='composition' ordinal='12' />
+                  <column datatype='integer' name='name_word_count' ordinal='13' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2' table='[Extract].[dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[sku]' />
+              <expression op='[sku (dates.csv)]' />
+            </expression>
+            <first-end-point object-id='cleaned_shein_sample.csv_09E86EFC24CE4FAEBB06A13ED31730CB' />
+            <second-end-point object-id='dates.csv_351DC0BC8CC44F159BB08BCF4F2B30F2' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Features'>
+      <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard/Features?rev=' id='115706152' path='/workbooks/EcommerceProductDashboard' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column-instance column='[image_count]' derivation='Avg' name='[avg:image_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[name_word_count]' derivation='Avg' name='[avg:name_word_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[price]' derivation='Avg' name='[avg:price:qk]' pivot='key' type='quantitative' />
+            <column caption='Image Count' datatype='integer' name='[image_count]' role='measure' type='quantitative' />
+            <column caption='Name Word Count' datatype='integer' name='[name_word_count]' role='measure' type='quantitative' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:name_word_count:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:image_count:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:price:qk]&quot;</bucket>
+              <bucket>&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:name_word_count:qk]&quot;</bucket>
+              <bucket>&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:image_count:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-size' value='0' />
+            <format attr='tick-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='color' value='#000000' />
+            <format attr='text-align' value='center' />
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:price:qk]' value='c&quot;$&quot;#,##0.00;(&quot;$&quot;#,##0.00)' />
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:name_word_count:qk]' value='n#,##0;-#,##0' />
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:image_count:qk]' value='n#,##0;-#,##0' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' scope='rows' value='0' />
+            <format attr='border-style' data-class='subtotal' scope='rows' value='none' />
+            <format attr='band-color' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='font-size' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]' value='10' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+            <format attr='band-color' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#00000000' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#898989' />
+            <format attr='font-weight' value='bold' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.15pai3o1x7rmin1bq53941q9s9it].[Multiple Values]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text />
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-size' value='0' />
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{24AFB357-E79B-4F50-8E26-BA56D1ADCC59}' />
+    </worksheet>
+    <worksheet name='Most Popular Colors'>
+      <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard/MostPopularColors?rev=' id='115706160' path='/workbooks/EcommerceProductDashboard' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column-instance column='[color_grouped]' derivation='Count' name='[cnt:color_grouped:qk]' pivot='key' type='quantitative' />
+            <column caption='Color Grouped' datatype='string' name='[color_grouped]' role='dimension' type='nominal' />
+            <column-instance column='[color_grouped]' derivation='None' name='[none:color_grouped:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:color_grouped:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:color_grouped:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:color_grouped:qk]' scope='cols' value='' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f1788d' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.15pai3o1x7rmin1bq53941q9s9it].[none:color_grouped:nk]</rows>
+        <cols>[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:color_grouped:qk]</cols>
+      </table>
+      <simple-id uuid='{7C5B91A4-3419-4DE5-B746-8D8DF3FD41AA}' />
+    </worksheet>
+    <worksheet name='Price Point Analysis'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column caption='Price Range Label' datatype='string' datatype-customized='true' name='[Calculation_1116611247451979777]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;$&quot; + STR(INT([Calculation_1116611247453949954])) + &quot; – $&quot; + STR(INT([Calculation_1116611247454015491]))' />
+            </column>
+            <column caption='Bin Start' datatype='integer' name='[Calculation_1116611247453949954]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOOR([price] / 3) * 3' />
+            </column>
+            <column caption='Bin End' datatype='integer' name='[Calculation_1116611247454015491]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOOR([price] / 3) * 3 + 3' />
+            </column>
+            <column aggregation='None' caption='Price (bin)' datatype='integer' name='[Price (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='0' formula='[price]' peg='0' size='3' />
+            </column>
+            <column-instance column='[sku (dates.csv)]' derivation='Count' name='[cnt:sku (dates.csv):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1116611247451979777]' derivation='None' name='[none:Calculation_1116611247451979777:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Price (bin)]' derivation='None' name='[none:Price (bin):qk]' pivot='key' type='quantitative' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column caption='Sku (Dates.Csv)' datatype='string' name='[sku (dates.csv)]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku (dates.csv):qk]' scope='rows' value='Units Sold' />
+            <format attr='display' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' field-type='quantitative' max='77' min='-1' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' scope='cols' value='' />
+            <encoding attr='space' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku (dates.csv):qk]' field-type='quantitative' max='1411' min='-22' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='color' data-class='subtotal' value='#000000' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' reverse='true' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#676767</color>
+                <color>#7a7a7a</color>
+                <color>#8d8d8d</color>
+                <color>#a0a0a0</color>
+                <color>#b3b3b3</color>
+                <color>#c6c6c6</color>
+                <color>#d9d9d9</color>
+                <color>#ddcacd</color>
+                <color>#e1bbc1</color>
+                <color>#e5abb5</color>
+                <color>#e99ba8</color>
+                <color>#ed899b</color>
+                <color>#f1788d</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' value='false' />
+            <format attr='break-on-special' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]' />
+              <lod column='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Calculation_1116611247451979777:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'><![CDATA[Price Range: <Price Range Label> ]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Units:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku (dates.csv):qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#f1788d' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku (dates.csv):qk]</rows>
+        <cols>[federated.15pai3o1x7rmin1bq53941q9s9it].[none:Price (bin):qk]</cols>
+        <show-full-range>
+          <column>[federated.15pai3o1x7rmin1bq53941q9s9it].[Price (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{0ACC8324-5103-4713-A8CC-6ED258CAF8B8}' />
+    </worksheet>
+    <worksheet name='Sales KPIS'>
+      <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard/SalesKPIS?rev=' id='115706157' path='/workbooks/EcommerceProductDashboard' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column-instance column='[price (dates.csv)]' derivation='Avg' name='[avg:price (dates.csv):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[sku]' derivation='Count' name='[cnt:sku:qk]' pivot='key' type='quantitative' />
+            <column caption='Price (Dates.Csv)' datatype='real' name='[price (dates.csv)]' role='measure' type='quantitative' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column caption='Sku' datatype='string' name='[sku]' role='dimension' type='nominal' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:price (dates.csv):qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]&quot;</bucket>
+              <bucket>&quot;[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:sku:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' value='C1033%' />
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[avg:price (dates.csv):qk]' value='c&quot;$&quot;#,##0.00;(&quot;$&quot;#,##0.00)' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]' value='center' />
+            <format attr='font-size' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]' value='14' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' value='false' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.15pai3o1x7rmin1bq53941q9s9it].[Multiple Values]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontsize='22'>&lt;</run>
+                <run fontsize='22'>[federated.15pai3o1x7rmin1bq53941q9s9it].[Multiple Values]</run>
+                <run fontsize='22'>&gt;</run>
+                <run fontsize='22'>Æ&#10;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.15pai3o1x7rmin1bq53941q9s9it].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{F8485AAD-C78A-4A08-A34A-C3CC9BCA2A58}' />
+    </worksheet>
+    <worksheet name='Sales by Category'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Category Sales&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard/SalesbyCategory?rev=' id='115706154' path='/workbooks/EcommerceProductDashboard' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column caption='Above Avg Sales' datatype='boolean' name='[Calculation_727049867289899008]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='SUM([price])&gt;=WINDOW_AVG(SUM([price]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_727049867289899008]' derivation='User' name='[usr:Calculation_727049867289899008:nk:1]' pivot='key' type='nominal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.15pai3o1x7rmin1bq53941q9s9it].[none:category:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='auto-subtitle' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' scope='cols' value='false' />
+            <format attr='title' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' scope='cols' value='' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-pattern-only' value='solid' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.15pai3o1x7rmin1bq53941q9s9it].[usr:Calculation_727049867289899008:nk:1]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.15pai3o1x7rmin1bq53941q9s9it].[none:category:nk]</rows>
+        <cols>[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]</cols>
+      </table>
+      <simple-id uuid='{29460AFF-758E-42DF-8007-56FBADA4770E}' />
+    </worksheet>
+    <worksheet name='Sales by Month'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Sales by Month&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='Month' name='[mn:date:ok]' pivot='key' type='ordinal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' scope='rows' value='' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[mn:date:ok]' value='iLLL' />
+            <format attr='text-format' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]' value='' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-pattern-only' value='solid' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f1788d' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.15pai3o1x7rmin1bq53941q9s9it].[sum:price:qk]</rows>
+        <cols>[federated.15pai3o1x7rmin1bq53941q9s9it].[mn:date:ok]</cols>
+      </table>
+      <simple-id uuid='{43F9A8FE-6598-4222-9ADF-947264B9810B}' />
+    </worksheet>
+    <worksheet name='Sheet 8'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{6CBE5708-A920-4963-A2E9-82D486C111D2}' />
+    </worksheet>
+    <worksheet name='Top 10 Brands'>
+      <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard/Top10Brands?rev=' id='115706153' path='/workbooks/EcommerceProductDashboard' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_shein_sample' name='federated.15pai3o1x7rmin1bq53941q9s9it' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15pai3o1x7rmin1bq53941q9s9it'>
+            <column datatype='string' name='[SHE Collaboration]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[brand]' new-bin='true'>
+                <bin default-name='false' value='&quot;SHEIN Collaborations&quot;'>
+                  <value>&quot;SHEIN X (in)SALT-Y(d)&quot;</value>
+                  <value>&quot;SHEIN X ABIMER&quot;</value>
+                  <value>&quot;SHEIN X Abrar Zenkawi&quot;</value>
+                  <value>&quot;SHEIN X Adiva Marie Co.&quot;</value>
+                  <value>&quot;SHEIN X Adrienne Alexis&quot;</value>
+                  <value>&quot;SHEIN X Afaf&quot;</value>
+                  <value>&quot;SHEIN X Aini Yang&quot;</value>
+                  <value>&quot;SHEIN X ALEXANDER KURMANIN&quot;</value>
+                  <value>&quot;SHEIN X Alexandra Five&quot;</value>
+                  <value>&quot;SHEIN X Alice Wanderland&quot;</value>
+                  <value>&quot;SHEIN X AMA&quot;</value>
+                  <value>&quot;SHEIN X AMOF&quot;</value>
+                  <value>&quot;SHEIN X Andra Popovici&quot;</value>
+                  <value>&quot;SHEIN X Andrea St.&quot;</value>
+                  <value>&quot;SHEIN X ANIHOUVI Ludmilla&quot;</value>
+                  <value>&quot;SHEIN X Aninho&quot;</value>
+                  <value>&quot;SHEIN X Anke Wonder&quot;</value>
+                  <value>&quot;SHEIN X Anne Kyrsten&quot;</value>
+                  <value>&quot;SHEIN X Areej Rimawi&quot;</value>
+                  <value>&quot;SHEIN X ARIA&quot;</value>
+                  <value>&quot;SHEIN X ARTH&quot;</value>
+                  <value>&quot;SHEIN X ARUS&quot;</value>
+                  <value>&quot;SHEIN X Ashi&quot;</value>
+                  <value>&quot;SHEIN X Ashley D Love&quot;</value>
+                  <value>&quot;SHEIN X ASSIA PESENTI&quot;</value>
+                  <value>&quot;SHEIN X Attilio De Angelis&quot;</value>
+                  <value>&quot;SHEIN X AZNE&quot;</value>
+                  <value>&quot;SHEIN X Basse Couture&quot;</value>
+                  <value>&quot;SHEIN X BAW Collection&quot;</value>
+                  <value>&quot;SHEIN X Bea Araza&quot;</value>
+                  <value>&quot;SHEIN X Becci&quot;</value>
+                  <value>&quot;SHEIN X Bethany Grace&quot;</value>
+                  <value>&quot;SHEIN X BLENX CODE&quot;</value>
+                  <value>&quot;SHEIN X Bronze Empire&quot;</value>
+                  <value>&quot;SHEIN X Brydie Rae Farrell&quot;</value>
+                  <value>&quot;SHEIN X By Nusha&quot;</value>
+                  <value>&quot;SHEIN X C-Era&quot;</value>
+                  <value>&quot;SHEIN X CakeSpy&quot;</value>
+                  <value>&quot;SHEIN X CAMILLE JUGE&quot;</value>
+                  <value>&quot;SHEIN X Carlotta Cardillo&quot;</value>
+                  <value>&quot;SHEIN X CAROLINE 1942&quot;</value>
+                  <value>&quot;SHEIN X CARSON WONG&quot;</value>
+                  <value>&quot;SHEIN X Catia Bart&quot;</value>
+                  <value>&quot;SHEIN X Cayetano&quot;</value>
+                  <value>&quot;SHEIN X Cecile Betbeze&quot;</value>
+                  <value>&quot;SHEIN X Channa Karasi&quot;</value>
+                  <value>&quot;SHEIN X CHERYL TEO&quot;</value>
+                  <value>&quot;SHEIN X Chiara&quot;</value>
+                  <value>&quot;SHEIN X Chompoohbua&quot;</value>
+                  <value>&quot;SHEIN X CIRCE&quot;</value>
+                  <value>&quot;SHEIN X Claire-Lys&quot;</value>
+                  <value>&quot;SHEIN X CLOSET EXCLUSIVES&quot;</value>
+                  <value>&quot;SHEIN X CLOUD BY CLAU&quot;</value>
+                  <value>&quot;SHEIN X Creative Calm&quot;</value>
+                  <value>&quot;SHEIN X CRIZM&quot;</value>
+                  <value>&quot;SHEIN X CRYBABY&quot;</value>
+                  <value>&quot;SHEIN X Cute but Psycho&quot;</value>
+                  <value>&quot;SHEIN X Cute-Saint&quot;</value>
+                  <value>&quot;SHEIN X D_3H30&quot;</value>
+                  <value>&quot;SHEIN X D.A.Z.H.E&quot;</value>
+                  <value>&quot;SHEIN X Danielle Monae&quot;</value>
+                  <value>&quot;SHEIN X DAY LITE&quot;</value>
+                  <value>&quot;SHEIN X DEATH BY DOLLS&quot;</value>
+                  <value>&quot;SHEIN X Delapaz&quot;</value>
+                  <value>&quot;SHEIN X Delayne Dixon&quot;</value>
+                  <value>&quot;SHEIN X DESIGNED BY TONY&quot;</value>
+                  <value>&quot;SHEIN X DESIGNS BY ZAHMAR&quot;</value>
+                  <value>&quot;SHEIN X Diana Brettas&quot;</value>
+                  <value>&quot;SHEIN X DIANA MAHA&quot;</value>
+                  <value>&quot;SHEIN X DINA STARS&quot;</value>
+                  <value>&quot;SHEIN X DORY YOUHANA&quot;</value>
+                  <value>&quot;SHEIN X Drea&quot;</value>
+                  <value>&quot;SHEIN X Dulc?&quot;</value>
+                  <value>&quot;SHEIN X EBIB&quot;</value>
+                  <value>&quot;SHEIN X EclecticCollection&quot;</value>
+                  <value>&quot;SHEIN X EMILY REED&quot;</value>
+                  <value>&quot;SHEIN X Eun&quot;</value>
+                  <value>&quot;SHEIN X Eva Novielli&quot;</value>
+                  <value>&quot;SHEIN X Eva Ruiz&quot;</value>
+                  <value>&quot;SHEIN X Farah Wali&quot;</value>
+                  <value>&quot;SHEIN X FAYE CHAN&quot;</value>
+                  <value>&quot;SHEIN X Federica&quot;</value>
+                  <value>&quot;SHEIN X Felicis&quot;</value>
+                  <value>&quot;SHEIN X Felicity&quot;</value>
+                  <value>&quot;SHEIN X Firefall&quot;</value>
+                  <value>&quot;SHEIN X Five Karats&quot;</value>
+                  <value>&quot;SHEIN X FLO PONCE PRINTS&quot;</value>
+                  <value>&quot;SHEIN X FLOR BY LO&quot;</value>
+                  <value>&quot;SHEIN X FORTUNATE&quot;</value>
+                  <value>&quot;SHEIN X FREAK CITY&quot;</value>
+                  <value>&quot;SHEIN X Gabriella Mavri&quot;</value>
+                  <value>&quot;SHEIN X GAUTII&quot;</value>
+                  <value>&quot;SHEIN X GD GRL BHVIOR&quot;</value>
+                  <value>&quot;SHEIN X GEANINA&quot;</value>
+                  <value>&quot;SHEIN X Geegee&apos;s Shop&quot;</value>
+                  <value>&quot;SHEIN X GIISE&quot;</value>
+                  <value>&quot;SHEIN X Glitzy&quot;</value>
+                  <value>&quot;SHEIN X GOD.like&quot;</value>
+                  <value>&quot;SHEIN X GottaBeJelly&quot;</value>
+                  <value>&quot;SHEIN X Gulnara Gulia&quot;</value>
+                  <value>&quot;SHEIN X Hanchi&quot;</value>
+                  <value>&quot;SHEIN X House of Fleek&quot;</value>
+                  <value>&quot;SHEIN X Huberlene&quot;</value>
+                  <value>&quot;SHEIN X ICW&quot;</value>
+                  <value>&quot;SHEIN X IMperfect&quot;</value>
+                  <value>&quot;SHEIN X In Moraine&quot;</value>
+                  <value>&quot;SHEIN X Innovante&quot;</value>
+                  <value>&quot;SHEIN X INSIGNIA&quot;</value>
+                  <value>&quot;SHEIN X ISABELLA&quot;</value>
+                  <value>&quot;SHEIN X Isabelle WANG&quot;</value>
+                  <value>&quot;SHEIN X Ishara Gamage&quot;</value>
+                  <value>&quot;SHEIN X Israel Jasso&quot;</value>
+                  <value>&quot;SHEIN X Jad&apos;e by Jas Thomas&quot;</value>
+                  <value>&quot;SHEIN X Janie Hao&quot;</value>
+                  <value>&quot;Shein x Jeanelle Sonia&quot;</value>
+                  <value>&quot;SHEIN X Jennty Designs&quot;</value>
+                  <value>&quot;SHEIN X JESSE G&quot;</value>
+                  <value>&quot;SHEIN X Jessica Di Michele&quot;</value>
+                  <value>&quot;SHEIN X JEWEL SUM&quot;</value>
+                  <value>&quot;SHEIN X Jojee Apparel&quot;</value>
+                  <value>&quot;SHEIN X Juliana Jace&quot;</value>
+                  <value>&quot;SHEIN X JuliaSasakiHernanz&quot;</value>
+                  <value>&quot;SHEIN X K Chirinos&quot;</value>
+                  <value>&quot;SHEIN X Kaotip&quot;</value>
+                  <value>&quot;SHEIN X KARISSA SCHNEIDER&quot;</value>
+                  <value>&quot;SHEIN X Kasey Nease&quot;</value>
+                  <value>&quot;SHEIN X KAY&quot;</value>
+                  <value>&quot;SHEIN X KaylaProductions&quot;</value>
+                  <value>&quot;SHEIN X KES&quot;</value>
+                  <value>&quot;SHEIN X Kesha Alein&quot;</value>
+                  <value>&quot;SHEIN X KierraNichole&quot;</value>
+                  <value>&quot;SHEIN X Kirsten Claire&quot;</value>
+                  <value>&quot;SHEIN X Kitty &amp; Rhodes&quot;</value>
+                  <value>&quot;SHEIN X Kovid Kapoor&quot;</value>
+                  <value>&quot;SHEIN X Krystal Everdeen&quot;</value>
+                  <value>&quot;SHEIN X KYS&quot;</value>
+                  <value>&quot;SHEIN X L&apos;Amour Morbide&quot;</value>
+                  <value>&quot;SHEIN X Larissa torres&quot;</value>
+                  <value>&quot;SHEIN X Laysia Lavon&quot;</value>
+                  <value>&quot;SHEIN X Lazy Hoya&quot;</value>
+                  <value>&quot;SHEIN X LENG CHIN&quot;</value>
+                  <value>&quot;SHEIN X Leslie Samano&quot;</value>
+                  <value>&quot;SHEIN X Let Them Stare&quot;</value>
+                  <value>&quot;SHEIN X Lezio Lopes&quot;</value>
+                  <value>&quot;SHEIN X LI WEN&quot;</value>
+                  <value>&quot;SHEIN X Lilee&quot;</value>
+                  <value>&quot;SHEIN X LILI PAN&quot;</value>
+                  <value>&quot;SHEIN X Liliana Luna&quot;</value>
+                  <value>&quot;SHEIN X Lillian Butterworth&quot;</value>
+                  <value>&quot;SHEIN X Lindsey Kate&quot;</value>
+                  <value>&quot;SHEIN X LIYUN X&quot;</value>
+                  <value>&quot;SHEIN X LMane&quot;</value>
+                  <value>&quot;SHEIN X LORI STEPHENSON&quot;</value>
+                  <value>&quot;SHEIN X LRUBRE&quot;</value>
+                  <value>&quot;SHEIN X LUSINE BONFIELD&quot;</value>
+                  <value>&quot;SHEIN X M.E.L.T&quot;</value>
+                  <value>&quot;SHEIN X Madina&quot;</value>
+                  <value>&quot;SHEIN X Manic Pop&quot;</value>
+                  <value>&quot;SHEIN X Manufactured Gold&quot;</value>
+                  <value>&quot;SHEIN X MAR?A PONCE&quot;</value>
+                  <value>&quot;SHEIN X Maria&quot;</value>
+                  <value>&quot;SHEIN X MAYSOPHIE&quot;</value>
+                  <value>&quot;SHEIN X MEC Wasa&quot;</value>
+                  <value>&quot;SHEIN X MEGAN JOHNSON&quot;</value>
+                  <value>&quot;SHEIN X MEL ROUMEC&quot;</value>
+                  <value>&quot;SHEIN X Meng Fei Lin&quot;</value>
+                  <value>&quot;SHEIN X Michaela Eddington&quot;</value>
+                  <value>&quot;SHEIN X Michelle Wong&quot;</value>
+                  <value>&quot;SHEIN X MIKYLIE&quot;</value>
+                  <value>&quot;SHEIN X MINA&quot;</value>
+                  <value>&quot;SHEIN X Mithra&quot;</value>
+                  <value>&quot;SHEIN X MIYUKI&quot;</value>
+                  <value>&quot;SHEIN X MOMI-KO&quot;</value>
+                  <value>&quot;SHEIN X Mountain Vintage Press&quot;</value>
+                  <value>&quot;SHEIN X MPDC&quot;</value>
+                  <value>&quot;SHEIN X MY-DOLLS&quot;</value>
+                  <value>&quot;SHEIN X My0812retro Streetwear&quot;</value>
+                  <value>&quot;SHEIN X NAJILARAQUELDESIGNS&quot;</value>
+                  <value>&quot;SHEIN X NAOMI&quot;</value>
+                  <value>&quot;SHEIN X Naomi Jasmin&quot;</value>
+                  <value>&quot;SHEIN X NATALIA DEDIOS&quot;</value>
+                  <value>&quot;SHEIN X Nayeli Lazaro&quot;</value>
+                  <value>&quot;SHEIN X Neon Island&quot;</value>
+                  <value>&quot;SHEIN X New Little Wings&quot;</value>
+                  <value>&quot;SHEIN X New Romance&quot;</value>
+                  <value>&quot;SHEIN X NICOLE CANDELORO&quot;</value>
+                  <value>&quot;SHEIN X Nikole Sanches&quot;</value>
+                  <value>&quot;SHEIN X NINACIA&quot;</value>
+                  <value>&quot;SHEIN X NJH Design&quot;</value>
+                  <value>&quot;SHEIN X Nkao Hle Hang&quot;</value>
+                  <value>&quot;SHEIN X NM3&quot;</value>
+                  <value>&quot;SHEIN X No?-Liam&quot;</value>
+                  <value>&quot;SHEIN X NOOR BREICH&quot;</value>
+                  <value>&quot;SHEIN X Nora Ink&quot;</value>
+                  <value>&quot;SHEIN X OSHEN&quot;</value>
+                  <value>&quot;SHEIN X Oxana&quot;</value>
+                  <value>&quot;SHEIN X PAMELA&quot;</value>
+                  <value>&quot;SHEIN X PANCHO&quot;</value>
+                  <value>&quot;SHEIN X PANUCO&quot;</value>
+                  <value>&quot;SHEIN X PAOLA DINAZARETH&quot;</value>
+                  <value>&quot;SHEIN X PAULINE MURATI&quot;</value>
+                  <value>&quot;SHEIN X Pchawj&quot;</value>
+                  <value>&quot;SHEIN X Peartree Stories&quot;</value>
+                  <value>&quot;SHEIN X PHOZOHO&quot;</value>
+                  <value>&quot;SHEIN X ppmid&quot;</value>
+                  <value>&quot;SHEIN X Provocation&quot;</value>
+                  <value>&quot;SHEIN X Pylog&quot;</value>
+                  <value>&quot;SHEIN X QIN LIN&quot;</value>
+                  <value>&quot;SHEIN X RAGLESS&quot;</value>
+                  <value>&quot;SHEIN X Raluk&quot;</value>
+                  <value>&quot;SHEIN X RAQUEL&quot;</value>
+                  <value>&quot;SHEIN X RAUL OROZCO&quot;</value>
+                  <value>&quot;SHEIN X RAYA&quot;</value>
+                  <value>&quot;SHEIN X Reanne Wang&quot;</value>
+                  <value>&quot;SHEIN X Rebecca Silva&quot;</value>
+                  <value>&quot;SHEIN X RECKLESS ERICKA&quot;</value>
+                  <value>&quot;SHEIN X Redefinition&quot;</value>
+                  <value>&quot;SHEIN X REESEDELUCA&quot;</value>
+                  <value>&quot;SHEIN X REN by Lau&quot;</value>
+                  <value>&quot;SHEIN X Renakok&quot;</value>
+                  <value>&quot;SHEIN X REVELIGION&quot;</value>
+                  <value>&quot;SHEIN X RITA H&quot;</value>
+                  <value>&quot;SHEIN X Rituales&quot;</value>
+                  <value>&quot;SHEIN X RL&quot;</value>
+                  <value>&quot;SHEIN X ROCIO&quot;</value>
+                  <value>&quot;SHEIN X Rossella Logiurato&quot;</value>
+                  <value>&quot;SHEIN X Royal Daisy&quot;</value>
+                  <value>&quot;SHEIN X SAAMU&quot;</value>
+                  <value>&quot;SHEIN X SABOTAGE 2C5F&quot;</value>
+                  <value>&quot;SHEIN X Sabrine&quot;</value>
+                  <value>&quot;SHEIN X Safari&quot;</value>
+                  <value>&quot;SHEIN X Sara Cennamo&quot;</value>
+                  <value>&quot;SHEIN X Sara Mezzanotti&quot;</value>
+                  <value>&quot;SHEIN X Sarah Stevenson&quot;</value>
+                  <value>&quot;SHEIN X SARI&quot;</value>
+                  <value>&quot;SHEIN X Sayndo&quot;</value>
+                  <value>&quot;SHEIN X Scube&quot;</value>
+                  <value>&quot;SHEIN X Sean Betco&quot;</value>
+                  <value>&quot;SHEIN X Season Lye&quot;</value>
+                  <value>&quot;SHEIN X Sergio Ricchitelli&quot;</value>
+                  <value>&quot;SHEIN X Shahedah&quot;</value>
+                  <value>&quot;SHEIN X Shanika Marie&quot;</value>
+                  <value>&quot;SHEIN X Shelby&quot;</value>
+                  <value>&quot;SHEIN X Shwetha Anand Designs&quot;</value>
+                  <value>&quot;SHEIN X Sire Leo Lamar&quot;</value>
+                  <value>&quot;SHEIN X Smita Shrinivas&quot;</value>
+                  <value>&quot;SHEIN X SMYLE&quot;</value>
+                  <value>&quot;SHEIN X SOBOSS BRAND&quot;</value>
+                  <value>&quot;SHEIN X Sogna&quot;</value>
+                  <value>&quot;SHEIN X SonofTheSunStudio&quot;</value>
+                  <value>&quot;SHEIN X Spagnelli&quot;</value>
+                  <value>&quot;SHEIN X SQUID HOUSE&quot;</value>
+                  <value>&quot;SHEIN X STEFANONI STUDIO&quot;</value>
+                  <value>&quot;SHEIN X Sylvia Mollie&quot;</value>
+                  <value>&quot;SHEIN X TAII Bangkok&quot;</value>
+                  <value>&quot;SHEIN X Tainted Love&quot;</value>
+                  <value>&quot;SHEIN X TANIA ORELLANA&quot;</value>
+                  <value>&quot;SHEIN X TATYANA&quot;</value>
+                  <value>&quot;SHEIN X Temmie TT&quot;</value>
+                  <value>&quot;SHEIN X The Pearl Collective&quot;</value>
+                  <value>&quot;SHEIN X The Perfect Party&quot;</value>
+                  <value>&quot;SHEIN X TheBoxMethod&quot;</value>
+                  <value>&quot;SHEIN X Tina Benally Art&quot;</value>
+                  <value>&quot;SHEIN X TIYA&quot;</value>
+                  <value>&quot;SHEIN X TRANG DUONG&quot;</value>
+                  <value>&quot;SHEIN X TSUN SHUIN&quot;</value>
+                  <value>&quot;SHEIN X TWINKLE CAT&quot;</value>
+                  <value>&quot;SHEIN X TZC&quot;</value>
+                  <value>&quot;SHEIN X VAE&quot;</value>
+                  <value>&quot;SHEIN X VALERIA G?MEZ&quot;</value>
+                  <value>&quot;SHEIN X Valeria Lujan&quot;</value>
+                  <value>&quot;SHEIN X Valerie Hsin&quot;</value>
+                  <value>&quot;SHEIN X VALHALLA&quot;</value>
+                  <value>&quot;SHEIN X VB Collection&quot;</value>
+                  <value>&quot;SHEIN X VERO DIAZ&quot;</value>
+                  <value>&quot;SHEIN X Veronica Mancini&quot;</value>
+                  <value>&quot;SHEIN X Vibrant Dames&quot;</value>
+                  <value>&quot;SHEIN X VICTOR VON SCHWARZ&quot;</value>
+                  <value>&quot;SHEIN X VNCIRCLE&quot;</value>
+                  <value>&quot;SHEIN X VOON&quot;</value>
+                  <value>&quot;SHEIN X WANDERFUL&quot;</value>
+                  <value>&quot;SHEIN X Weims&quot;</value>
+                  <value>&quot;SHEIN X X52X&quot;</value>
+                  <value>&quot;SHEIN X Xenia&quot;</value>
+                  <value>&quot;SHEIN X XIAO YAOQIUZI&quot;</value>
+                  <value>&quot;SHEIN X Xosefino&quot;</value>
+                  <value>&quot;SHEIN X YAYA ZAHIR&quot;</value>
+                  <value>&quot;SHEIN X YEARS&quot;</value>
+                  <value>&quot;SHEIN X YELLOW MUSHMELLOW&quot;</value>
+                  <value>&quot;SHEIN X Yelly Gray&quot;</value>
+                  <value>&quot;SHEIN X Yilang&quot;</value>
+                  <value>&quot;SHEIN X YINNG&quot;</value>
+                  <value>&quot;SHEIN X YUPING&quot;</value>
+                  <value>&quot;SHEIN X Zizzari&quot;</value>
+                  <value>&quot;SHEIN X Zoe Foreman&quot;</value>
+                </bin>
+              </calculation>
+            </column>
+            <column caption='Brand' datatype='string' name='[brand]' role='dimension' type='nominal' />
+            <column-instance column='[brand]' derivation='Count' name='[cnt:brand:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.15pai3o1x7rmin1bq53941q9s9it].[SHE Collaboration]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='COUNT([brand])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[SHE Collaboration]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.15pai3o1x7rmin1bq53941q9s9it].[SHE Collaboration]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:brand:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.15pai3o1x7rmin1bq53941q9s9it].[SHE Collaboration]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:brand:qk]' scope='cols' value='' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='tick-color' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' scope='rows' value='left' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#f1788d' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.15pai3o1x7rmin1bq53941q9s9it].[SHE Collaboration]</rows>
+        <cols>[federated.15pai3o1x7rmin1bq53941q9s9it].[cnt:brand:qk]</cols>
+      </table>
+      <simple-id uuid='{0277830E-2EC8-4A16-A94F-FD6057FC2D54}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard'>
+      <repository-location derived-from='https://haproxy-traffic-splitter/workbooks/EcommerceProductDashboard/Dashboard?rev=' id='115706161' path='/workbooks/EcommerceProductDashboard' revision='' />
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#f5f5f5' />
+        </style-rule>
+      </style>
+      <size maxheight='1200' maxwidth='2500' minheight='600' minwidth='2000' sizing-mode='range' />
+      <zones>
+        <zone h='100000' id='48' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97334' id='51' param='horz' type-v2='layout-flow' w='99200' x='400' y='1333'>
+            <zone h='97334' id='49' type-v2='layout-basic' w='99200' x='400' y='1333' />
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='100000' id='3' param='vert' type-v2='layout-flow' w='75000' x='150' y='-167'>
+          <zone fixed-size='77' forceUpdate='true' h='16166' id='4' is-fixed='true' type-v2='text' w='75000' x='150' y='-167'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book' fontsize='24'>Products Overview</run>
+              <run fontalignment='1'>Æ&#10;</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#e6e6e6' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='10' />
+              <format attr='padding' value='10' />
+              <format attr='background-color' value='#ffffff' />
+            </zone-style>
+          </zone>
+          <zone fixed-size='97' h='16167' id='55' is-fixed='true' type-v2='layout-basic' w='75000' x='150' y='15999'>
+            <zone h='16167' id='28' param='horz' type-v2='layout-flow' w='62300' x='150' y='15999'>
+              <zone fixed-size='1108' h='16167' id='29' is-fixed='true' name='Sales KPIS' show-title='false' w='62300' x='150' y='15999'>
+                <layout-cache type-h='cell' type-w='cell' />
+                <zone-style>
+                  <format attr='border-color' value='#e6e6e6' />
+                  <format attr='border-style' value='solid' />
+                  <format attr='border-width' value='1' />
+                  <format attr='margin' value='10' />
+                  <format attr='padding' value='10' />
+                  <format attr='background-color' value='#ffffff' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h='16167' id='56' param='horz' type-v2='layout-flow' w='12700' x='62450' y='15999'>
+              <zone fixed-size='300' h='16167' id='30' is-fixed='true' param='horz' type-v2='layout-flow' w='12700' x='62450' y='15999'>
+                <zone fixed-size='230' h='16167' id='31' is-fixed='true' name='Features' show-title='false' w='12700' x='62450' y='15999'>
+                  <layout-cache cell-count-w='1' non-cell-size-w='140' type-h='cell' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='10' />
+                    <format attr='padding' value='10' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='67667' id='5' param='vert' type-v2='layout-flow' w='75000' x='150' y='32166'>
+            <zone h='67667' id='7' param='horz' type-v2='layout-flow' w='75000' x='150' y='32166'>
+              <zone h='67667' id='14' param='vert' type-v2='layout-flow' w='75000' x='150' y='32166'>
+                <zone h='67667' id='53' is-fixed='true' type-v2='layout-basic' w='75000' x='150' y='32166'>
+                  <zone h='67667' id='18' param='horz' type-v2='layout-flow' w='55850' x='150' y='32166'>
+                    <zone h='67667' id='22' param='horz' type-v2='layout-flow' w='8700' x='150' y='32166'>
+                      <zone h='67667' id='23' name='Sales by Category' w='8700' x='150' y='32166'>
+                        <layout-cache minwidth='180' type-h='cell' type-w='scalable' />
+                        <zone-style>
+                          <format attr='border-color' value='#e6e6e6' />
+                          <format attr='border-style' value='solid' />
+                          <format attr='border-width' value='1' />
+                          <format attr='margin' value='10' />
+                          <format attr='padding' value='10' />
+                          <format attr='background-color' value='#ffffff' />
+                        </zone-style>
+                      </zone>
+                    </zone>
+                    <zone fixed-size='407' h='67667' id='46' is-fixed='true' name='Sales by Month' w='21350' x='8850' y='32166'>
+                      <layout-cache minheight='183' type-h='scalable' type-w='cell' />
+                      <zone-style>
+                        <format attr='border-color' value='#e6e6e6' />
+                        <format attr='border-style' value='solid' />
+                        <format attr='border-width' value='1' />
+                        <format attr='margin' value='10' />
+                        <format attr='padding' value='10' />
+                        <format attr='background-color' value='#ffffff' />
+                      </zone-style>
+                    </zone>
+                    <zone fixed-size='496' h='67667' id='47' is-fixed='true' name='Price Point Analysis' w='25800' x='30200' y='32166'>
+                      <layout-cache minheight='198' minwidth='166' type-h='scalable' type-w='scalable' />
+                      <zone-style>
+                        <format attr='border-color' value='#e6e6e6' />
+                        <format attr='border-style' value='solid' />
+                        <format attr='border-width' value='1' />
+                        <format attr='margin' value='10' />
+                        <format attr='padding' value='10' />
+                        <format attr='background-color' value='#ffffff' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                  <zone h='67667' id='54' param='horz' type-v2='layout-flow' w='19150' x='56000' y='32166'>
+                    <zone fixed-size='183' h='67667' id='19' is-fixed='true' name='Top 10 Brands' w='10150' x='56000' y='32166'>
+                      <layout-cache minwidth='180' type-h='cell' type-w='scalable' />
+                      <zone-style>
+                        <format attr='border-color' value='#e6e6e6' />
+                        <format attr='border-style' value='solid' />
+                        <format attr='border-width' value='1' />
+                        <format attr='margin' value='10' />
+                        <format attr='padding' value='10' />
+                        <format attr='background-color' value='#ffffff' />
+                      </zone-style>
+                    </zone>
+                    <zone h='67667' id='27' name='Most Popular Colors' w='9000' x='66150' y='32166'>
+                      <layout-cache minwidth='180' type-h='cell' type-w='scalable' />
+                      <zone-style>
+                        <format attr='border-color' value='#e6e6e6' />
+                        <format attr='border-style' value='solid' />
+                        <format attr='border-width' value='1' />
+                        <format attr='margin' value='10' />
+                        <format attr='padding' value='10' />
+                        <format attr='background-color' value='#ffffff' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1850' minheight='1850' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='60' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97334' id='59' param='vert' type-v2='layout-flow' w='99200' x='400' y='1333'>
+                <zone fixed-size='77' forceUpdate='true' h='16166' id='4' type-v2='text' w='75000' x='150' y='-167'>
+                  <formatted-text>
+                    <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book' fontsize='24'>Products Overview</run>
+                    <run fontalignment='1'>Æ&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='152' h='16167' id='29' is-fixed='true' name='Sales KPIS' show-title='false' w='55850' x='150' y='15999'>
+                  <layout-cache cell-count-h='1' non-cell-size-h='20' type-h='cell' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='152' h='16167' id='31' is-fixed='true' name='Features' show-title='false' w='19150' x='56000' y='15999'>
+                  <layout-cache cell-count-w='1' non-cell-size-w='140' type-h='cell' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='67667' id='23' is-fixed='true' name='Sales by Category' w='8700' x='150' y='32166'>
+                  <layout-cache minwidth='180' type-h='cell' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='67667' id='46' is-fixed='true' name='Sales by Month' w='21350' x='8850' y='32166'>
+                  <layout-cache minheight='183' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='67667' id='47' is-fixed='true' name='Price Point Analysis' w='25800' x='30200' y='32166'>
+                  <layout-cache minheight='198' minwidth='166' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='67667' id='19' is-fixed='true' name='Top 10 Brands' w='10150' x='56000' y='32166'>
+                  <layout-cache minwidth='180' type-h='cell' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='67667' id='27' is-fixed='true' name='Most Popular Colors' w='9000' x='66150' y='32166'>
+                  <layout-cache minwidth='180' type-h='cell' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#e6e6e6' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4A204E58-7997-4510-9F40-A453BC7A4FF1}' />
+    </dashboard>
+  </dashboards>
+  <windows show-side-pane='false' source-height='30'>
+    <window class='worksheet' name='Features'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{677075CB-A23F-49EC-88BE-B0F7524EEA26}' />
+    </window>
+    <window class='worksheet' name='Top 10 Brands'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{029A4A57-C76D-4203-B45E-8C1BB1AE5079}' />
+    </window>
+    <window class='worksheet' name='Sales by Category'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.15pai3o1x7rmin1bq53941q9s9it].[usr:Calculation_727049867289899008:nk:1]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{F9729F12-DD96-4F78-9E6F-E154A997D129}' />
+    </window>
+    <window class='worksheet' name='Sales KPIS'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4A966DCA-1C8B-487E-98F1-56554ADA9DC4}' />
+    </window>
+    <window class='worksheet' name='Most Popular Colors'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{9D789241-660F-4893-ABC1-66D3B9EF1B5F}' />
+    </window>
+    <window class='worksheet' name='Sales by Month'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CF219F75-297C-4B44-8463-8EFE4707B2AC}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Price Point Analysis'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{ECE09FD0-AF2E-4639-9D6A-53DE458A8E6B}' />
+    </window>
+    <window class='dashboard' name='Dashboard'>
+      <viewpoints>
+        <viewpoint name='Features'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Most Popular Colors'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Price Point Analysis'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sales KPIS'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sales by Category'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sales by Month'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top 10 Brands'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='4' />
+      <simple-id uuid='{66009D07-685E-4872-BC55-1342A707756B}' />
+    </window>
+    <window class='worksheet' name='Sheet 8'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E02A3224-E5A7-4A81-BE05-859EDFEF2CA0}' />
+    </window>
+  </windows>
+</workbook>
