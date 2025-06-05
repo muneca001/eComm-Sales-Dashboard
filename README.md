@@ -16,7 +16,7 @@ The dashboard addresses the following core business questions:
 
 You can open the dashboard in Tableau in one of two ways:
 
-1. **Tableau Public**
+1. [**Tableau Public**](https://public.tableau.com/app/profile/muneca001/viz/EcommerceProductDashboard/Dashboard)
 
 2. **Use the direct file**:
    - Go to the `dashboard/` folder
